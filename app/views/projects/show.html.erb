@@ -1,0 +1,8 @@
+<h1><%= @project.title %></h1>
+<h2>By: <%= @project.creator.full_name%></h2>
+    Category: <%= @project.category.name %>  <br>
+    Description: <%= @project.description %> <br>
+    Funds needed: <%= @project.funds_needed %> <br>
+    Funds acquired: <%= @project.funds_acquired %> <br>
+    Number of backers: <%= @project.number_of_supporters %> <br>
+    <img src= "<%=@project.image_url%>" >
