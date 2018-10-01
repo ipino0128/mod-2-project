@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_145219) do
+ActiveRecord::Schema.define(version: 2018_10_01_172129) do
+
+  create_table "project_backings", force: :cascade do |t|
+    t.integer "project_backer_id"
+    t.integer "backed_project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -20,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_145219) do
     t.integer "funds_acquired"
     t.integer "number_of_supporters"
     t.string "image_url"
-    t.integer "user_id"
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

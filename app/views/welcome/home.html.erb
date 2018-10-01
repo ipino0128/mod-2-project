@@ -1,0 +1,14 @@
+<h1>Welcome to *PENDING TRADEMARK*</h1>
+
+  <% @projects.each do |project| %>
+    <%= link_to project.title, project_path(project) %>
+  <% end %>
+
+  <% if logged_in? %>
+    Welcome, <%= current_user.first_name %><br>
+    <%= form_tag '/logout', method: "post" do %>
+      <input type=submit value="logout">
+    <% end %>
+    <% else %>
+      <%= link_to "Click to log-in", login_path %>
+  <% end %>
