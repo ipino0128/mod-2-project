@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :require_logged_in, except: [:show]
+
 
   def new
     @project = Project.new
@@ -13,6 +15,13 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+  end
+
+  def support
+    @project = Project.find(params[:id])
+    @project.funds_acquired += params[:project][:funds_acquired].to_i
+    @project.update(funds_acquired: @project.funds_acquired )
+    redirect_to project_path(@project)
   end
 
   private
