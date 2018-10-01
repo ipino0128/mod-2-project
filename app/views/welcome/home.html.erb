@@ -7,7 +7,10 @@
   <% if logged_in? %>
     Welcome, <%= current_user.first_name %><br>
     <%= form_tag '/logout', method: "post" do %>
-      <input type=submit value="logout">
+      <input type=submit value="logout"><br>
+    <%= link_to "My Profile", user_path(current_user.id) %>
+
+
     <% end %>
     <% else %>
       <%= link_to "Click to log-in", login_path %>

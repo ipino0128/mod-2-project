@@ -6,3 +6,11 @@
     Funds acquired: <%= @project.funds_acquired %> <br>
     Number of backers: <%= @project.number_of_supporters %> <br>
     <img src= "<%=@project.image_url%>" >
+
+<% if logged_in? %>
+  <%= form_for @project do |f| %>
+
+    Enter how much you'd like to donate: <%= f.number_field :funds_acquired %>
+    <%= f.submit "Back this project" %>
+  <% end %>
+<% end %>

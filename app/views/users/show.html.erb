@@ -1,6 +1,19 @@
 <h1><%=@user.first_name%> <%= @user.last_name%></h1>
-    <%= @user.username %> <br>
-    <%= @user.age %> <br>
-    <%= @user.gender %> <br>
-    <%= @user.country %> <br>
-    <%= @user.occupation %> <br>
+  Username: <%= @user.username %> <br>
+  Age: <%= @user.age %> <br>
+  Gender: <%= @user.gender %> <br>
+  Country: <%= @user.country %> <br>
+  Occupation: <%= @user.occupation %> <br>
+  <br>
+  See this user's projects:
+  <ul><% @user.created_projects.each do |created_project| %>
+  <p><%= link_to created_project.title, project_path(created_project.id) %><br>
+      <%= created_project.description %></p>
+    <% end %>
+  </ul>
+  <br>
+  See projects that this user has backed:
+  <ul><% @user.backed_projects.each do |backed_project| %>
+    <p><% link_to backed_project.title, project_path(backed_project.id) %></p>
+  <% end %>
+  </ul>
