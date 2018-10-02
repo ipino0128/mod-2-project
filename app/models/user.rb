@@ -5,7 +5,10 @@ class User < ApplicationRecord
   has_many :created_projects, :foreign_key => :creator_id, :class_name => "Project"
 
   ###validations
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+
 
   has_secure_password
 
@@ -13,5 +16,5 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
-  
+
 end

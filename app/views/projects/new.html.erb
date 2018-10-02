@@ -1,20 +1,33 @@
-<h1>Create a project:</h1>
-<%= form_for @project do |f| %>
+<div class="form">
 
-    <%= f.label :title %>
-    <%= f.text_field :title %> <br>
+  <h1>Create a project:</h1>
 
-    <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>  <br>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %> <br>
-
-    <%= f.label :funds_needed %>
-    <%= f.number_field :funds_needed %> <br>
-
-    <%= f.label :project_photo%>
-    <%= f.file_field :project_photo %> <br>
-
-    <%= f.submit %>
+  <div class="error">
+  <% if @project.errors.any? %>
+    <% @project.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
   <% end %>
+  </div>
+
+  <%= form_for @project do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %> <br>
+
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, Category.all, :id, :name %>  <br>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %> <br>
+
+      <%= f.label :funds_needed %>
+      <%= f.number_field :funds_needed %> <br>
+
+      <%= f.label :project_photo%>
+      <%= f.file_field :project_photo %> <br>
+
+      <%= f.submit %>
+    <% end %>
+    
+</div>

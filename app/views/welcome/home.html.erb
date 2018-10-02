@@ -18,6 +18,17 @@
 
 
 
-  <% @projects.each do |project| %>
-    <p><%= link_to project.title, project_path(project) %></p>
-  <% end %>
+  <div class="project-container">
+    <div class="row">
+       <% @projects.each do |project| %>
+         <div class="index-info-box col-sm-4">
+             <div></div>
+           <%= link_to project.title, project_path(project) %>
+           <div class="index-picture col-sm-4">
+             <%= image_tag(project.project_photo.url, width: "40", height: "50") unless !project.project_photo.url %>
+           </div>
+           <%= project.description %>
+         </div>
+      <% end %>
+ </div>
+</div>

@@ -11,7 +11,11 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.creator_id = current_user.id
     @project.save
-    redirect_to project_path(@project)
+    if @project.valid?
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def show
