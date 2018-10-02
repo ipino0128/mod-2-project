@@ -1,28 +1,32 @@
-<h1><%= @project.title %></h1>
-<h2>By: <%= @project.creator.full_name%></h2>
-    Category: <%= @project.category.name %>  <br>
-    Description: <%= @project.description %> <br>
-    Funds needed: <%= @project.funds_needed %> <br>
-    Funds acquired: <%= @project.funds_acquired %> <br>
-    Number of backers: <%= @project.number_of_supporters %> <br>
-    <%= image_tag(@project.project_photo.url, alt: 'Image', width: "200", height: "275") %>
+<div class="show">
+
+  <h1><%= @project.title %></h1>
+  <h2>By: <%= @project.creator.full_name%></h2>
+      Category: <%= @project.category.name %>  <br>
+      Description: <%= @project.description %> <br>
+      Funds needed: <%= @project.funds_needed %> <br>
+      Funds acquired: <%= @project.funds_acquired %> <br>
+      Number of backers: <%= @project.number_of_supporters %> <br>
+      <%= image_tag(@project.project_photo.url, alt: 'Image', width: "200", height: "275") unless !@project.project_photo.url %>
 
 
 
-<% if logged_in? %>
-  <%= form_for @project, url: "/projects/#{@project.id}/support", method: :patch do |f| %>
+  <% if logged_in? %>
+    <%= form_for @project, url: "/projects/#{@project.id}/support", method: :patch do |f| %>
 
-    Enter how much you'd like to support: <%= f.number_field :funds_acquired %>
-    <%= f.submit "Back this project" %>
+      Enter how much you'd like to support: <%= f.number_field :funds_acquired %>
+      <%= f.submit "Back this project" %>
+    <% end %>
   <% end %>
-<% end %>
-<br><br>
+  <br><br>
 
-<% if @project.creator_id == current_user.id %>
-  <%= link_to "Edit Project", edit_project_path %>
-  <%= form_for @project, url: "/projects/#{@project.id}", method: :delete do |f| %>
-       <%= f.submit "Delete Project" %>
-  <%end%>
-<% end %>
-<br><br>
-  <%= link_to "Main Menu", "/" %>
+  <% if @project.creator_id == current_user.id %>
+    <%= link_to "Edit Project", edit_project_path %>
+    <%= form_for @project, url: "/projects/#{@project.id}", method: :delete do |f| %>
+         <%= f.submit "Delete Project" %>
+    <%end%>
+  <% end %>
+  <br><br>
+    <%= link_to "Main Menu", "/" %>
+
+</div>
