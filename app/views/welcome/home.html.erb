@@ -1,34 +1,43 @@
-<h1>Welcome to *PENDING TRADEMARK*</h1>
+<div class = "welcome" >
 
-  <% if logged_in? %>
-    Welcome, <%= current_user.first_name %><br>
-    <%= form_tag '/logout', method: "post" do %>
-      <input type=submit value="logout"><br>
-<br> <br>
-    <%= link_to "My Profile", user_path(current_user.id) %>
-    <br><br>
-    <% end %>
+      <!-- <% if logged_in? %>
+        Welcome, <%= current_user.first_name %><br>
+        <%= form_tag '/logout', method: "post" do %>
+          <input type=submit value="logout"><br>
+    <br> <br>
+        <%= link_to "My Profile", user_path(current_user.id) %>
+        <br><br>
+        <% end %>
 
-  <%= link_to "Create a Project", new_project_path %>
-  <br><br>
-  <% else %>
-    <%= link_to "Click to log-in", login_path %>
+      <%= link_to "Create a Project", new_project_path %>
+      <br><br>
+      <% else %>
+        <%= link_to "Click to log-in", login_path %>
 
-  <% end %>
+      <% end %> -->
 
 
-
-  <div class="project-container">
-    <div class="row">
-       <% @projects.each do |project| %>
-         <div class="index-info-box col-sm-4">
-             <div></div>
-           <%= link_to project.title, project_path(project) %>
-           <div class="index-picture col-sm-4">
-             <%= image_tag(project.project_photo.url, width: "40", height: "50") unless !project.project_photo.url %>
-           </div>
-           <%= project.description %>
+  <div class="row">
+      <div class = "left-column col-sm-10" >
+          <div class="project-container">
+            <div class="row">
+               <% @projects.each do |project| %>
+                 <div class="index-info-box col-sm-4">
+                     <div></div>
+                   <%= link_to project.title, project_path(project) %>
+                   <div class="index-picture col-sm-4">
+                     <%= image_tag(project.project_photo.url, width: "40", height: "50") unless !project.project_photo.url %>
+                   </div>
+                   <%= project.description %>
+                 </div>
+              <% end %>
          </div>
-      <% end %>
- </div>
+        </div>
+    </div>
+    <div class = "right-column col-sm-2" >
+      <% if logged_in? %>
+      <%= link_to "My Profile", user_path(current_user.id) %>
+      <br><br>
+    <%= link_to "Create a Project", new_project_path %>
+  <% end %>
 </div>

@@ -1,10 +1,29 @@
 /* Style the header */
 .header {
   padding: 10px 16px;
-  background: #555;
-  color: #f1f1f1;
+  background: #FFFFFF;
   text-align: center;
+  color: rgb(31,46,117);
+  font-family: 'Shadows Into Light', cursive;
+  border-bottom: solid 0.2px;
+  position: relative;
 }
+
+.header span{
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(31,46,117);
+}
+
+.login_logout{
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
 
 /* Page content */
 .content {
@@ -24,14 +43,60 @@
 }
 
 .index-info-box {
-  border: 1px solid blue;
+  border: 1px solid rgb(31,46,117);
+  text-align: center;
+  font-size: 18px;
+}
+
+.index-picture {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .error {
   color: red;
 }
 
-.form, .show{
+.form, .show, .welcome{
   margin-top: 20px;
   margin-left: 20px;
+}
+
+
+/* login image formatting */
+
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://planwashington.org/media/1321/led.jpg");
+
+    /* Set a specific height */
+    height: 100%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-text a{
+  color: white;
+  text-decoration: underline;
 }
