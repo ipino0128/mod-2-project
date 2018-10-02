@@ -8,9 +8,16 @@
     <img src= "<%=@project.image_url%>" >
 
 <% if logged_in? %>
-  <%= form_for @project do |f| %>
+  <%= form_for @project, url: "/projects/#{@project.id}/support", method: :patch do |f| %>
 
-    Enter how much you'd like to donate: <%= f.number_field :funds_acquired %>
+    Enter how much you'd like to support: <%= f.number_field :funds_acquired %>
     <%= f.submit "Back this project" %>
   <% end %>
 <% end %>
+<br><br>
+
+<% if @project.creator_id == current_user.id %>
+  <%= link_to "Edit Project", edit_project_path %>
+<% end %>
+<br><br>
+  <%= link_to "Main Menu", "/" %>
