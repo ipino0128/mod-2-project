@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, except: [:index, :destroy]
-  resources :projects, only: [:show, :new, :create]
+  resources :projects, only: [:show, :new, :create, :edit, :update]
 
   get '/', to: "welcome#home"
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
-  patch '/projects/:id', to: "projects#support"
+  patch '/projects/:id/support', to: "projects#support"
 end

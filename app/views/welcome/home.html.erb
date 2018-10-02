@@ -1,17 +1,22 @@
 <h1>Welcome to *PENDING TRADEMARK*</h1>
 
-  <% @projects.each do |project| %>
-    <%= link_to project.title, project_path(project) %>
-  <% end %>
-
   <% if logged_in? %>
     Welcome, <%= current_user.first_name %><br>
     <%= form_tag '/logout', method: "post" do %>
       <input type=submit value="logout"><br>
     <%= link_to "My Profile", user_path(current_user.id) %>
-
-
+    <br><br>
     <% end %>
-    <% else %>
-      <%= link_to "Click to log-in", login_path %>
+
+  <%= link_to "Create a Project", new_project_path %>
+  <br><br>
+  <% else %>
+    <%= link_to "Click to log-in", login_path %>
+
+  <% end %>
+
+
+
+  <% @projects.each do |project| %>
+    <p><%= link_to project.title, project_path(project) %></p>
   <% end %>

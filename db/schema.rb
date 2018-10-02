@@ -29,8 +29,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_204556) do
     t.string "title"
     t.string "description"
     t.integer "funds_needed"
-    t.integer "funds_acquired"
-    t.integer "number_of_supporters"
+    t.integer "funds_acquired", default: 0
     t.string "image_url"
     t.integer "creator_id"
     t.integer "category_id"

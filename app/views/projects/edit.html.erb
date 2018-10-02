@@ -1,0 +1,17 @@
+<h1>Edit this project:</h1>
+<%= form_for @project do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br>
+
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>  <br>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %> <br>
+
+    <%= f.label :funds_needed %>
+    <%= f.number_field :funds_needed %> <br>
+
+    <%= f.submit %>
+  <% end %>
