@@ -4,6 +4,7 @@
     Welcome, <%= current_user.first_name %><br>
     <%= form_tag '/logout', method: "post" do %>
       <input type=submit value="logout"><br>
+<br> <br>
     <%= link_to "My Profile", user_path(current_user.id) %>
     <br><br>
     <% end %>

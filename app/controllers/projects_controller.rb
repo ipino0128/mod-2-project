@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :require_logged_in, except: [:show]
-  before_action :find_project, only: [:show, :support, :edit, :update]
+  before_action :find_project, only: [:show, :support, :edit, :update, :destroy]
 
 
   def new
@@ -32,6 +32,11 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def destroy
+    @project.destroy
+    redirect_to user_path(current_user.id)
+  end
+
   private
 
   def find_project
@@ -39,7 +44,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :funds_needed, :funds_acquired, :number_of_supporters, :image_url, :creator_id, :category_id)
+    params.require(:project).permit(:title, :description, :funds_needed, :funds_acquired, :number_of_supporters, :creator_id, :category_id, :project_photo)
   end
 
 end
