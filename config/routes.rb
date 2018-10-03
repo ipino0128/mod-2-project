@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get '/search', to: "welcome#home"
   get '/notes/:id', to: "users#notes", as: "note"
   patch '/notes/:id', to: "users#notes_save"
-  
+  get '/category/:id', to: "welcome#category", as: "category"
+
 end
