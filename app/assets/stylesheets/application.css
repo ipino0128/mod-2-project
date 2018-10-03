@@ -128,3 +128,29 @@ body, html {
 .card-text {
   font-size: 12px;
 }
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.top-left {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+.note-button{
+  float: right;
+}
+
+.menu-button{
+  float: left;
+}
+
+.top-left textarea{
+  width: 100%;
+  height: 100%;
+
+}

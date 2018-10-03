@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   post '/logout', to: "sessions#destroy"
   patch '/projects/:id/support', to: "projects#support"
   get '/search', to: "welcome#home"
+  get '/notes/:id', to: "users#notes", as: "note"
+  patch '/notes/:id', to: "users#notes_save"
+  
 end

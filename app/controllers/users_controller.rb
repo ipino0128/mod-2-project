@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.valid?
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -26,12 +27,22 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def notes
+    @user = User.find(params[:id])
+  end
+
+  def notes_save
+    @user = User.find(params[:id])
+    @user.update(note_content: params[:user][:note_content])
+    redirect_to note_path(@user)
+  end
+
 
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :password, :password_confirmation, :email, :age, :gender, :country, :occupation)
+    params.require(:user).permit(:first_name, :last_name, :username, :password, :password_confirmation, :email, :age, :gender, :country, :occupation, :note_content)
   end
 
 end
