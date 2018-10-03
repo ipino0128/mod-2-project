@@ -1,16 +1,18 @@
 <div class="hero-image">
 
-      <div class ="hero-text">
-      <%= form_for @user, url: login_path, method: "post" do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username %>
-        <br><br>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        <br><br>
-        <%= f.submit "Log In" %>
-        <br><br>
-        or <%= link_to "Create an account", new_user_path %>
-      <% end %>
-      </div>
+
+  <div class ="hero-text">
+    <div class="error"> <%= flash.notice %></div>
+    <%= form_for @user, url: login_path, method: "post" do |f| %>
+      <%= f.label :username %><br>
+      <%= f.text_field :username, placeholder: "Enter username" %>
+      <br><br>
+      <%= f.label :password %><br>
+      <%= f.password_field :password, placeholder: "Enter password"%>
+      <br><br>
+      <%= f.submit "Log In" %>
+      <br><br>
+      or <%= link_to "Create an account", new_user_path %>
+    <% end %>
+    </div>
 </div>

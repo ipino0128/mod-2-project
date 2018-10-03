@@ -1,43 +1,29 @@
 <div class = "welcome" >
 
-      <!-- <% if logged_in? %>
-        Welcome, <%= current_user.first_name %><br>
-        <%= form_tag '/logout', method: "post" do %>
-          <input type=submit value="logout"><br>
-    <br> <br>
-        <%= link_to "My Profile", user_path(current_user.id) %>
-        <br><br>
-        <% end %>
-
-      <%= link_to "Create a Project", new_project_path %>
-      <br><br>
-      <% else %>
-        <%= link_to "Click to log-in", login_path %>
-
-      <% end %> -->
-
-
   <div class="row">
-      <div class = "left-column col-sm-10" >
-          <div class="project-container">
-            <div class="row">
-               <% @projects.each do |project| %>
-                 <div class="index-info-box col-sm-4">
-                     <div></div>
-                   <%= link_to project.title, project_path(project) %>
-                   <div class="index-picture col-sm-4">
-                     <%= image_tag(project.project_photo.url, width: "40", height: "50") unless !project.project_photo.url %>
-                   </div>
-                   <%= project.description %>
-                 </div>
-              <% end %>
-         </div>
-        </div>
+    <div class="left-column col-sm-10">
+      <div class="card-deck">
+        <% @projects.each do |project| %>
+          <div class="index-info-box col-sm-4">
+            <div class="card">
+              <img class="card-img-top" src="<%=project.project_photo%>">
+              <div class="card-body">
+                <h5 class="card-title"><%=project.title%></h5>
+                <p class="card-text"><%=project.description[0..100] + "..." unless !project.description %></p>
+                <a href="/projects/<%=project.id%>" class="btn btn-primary">See Project</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class = "right-column col-sm-2" >
+    <div class="right-column col-sm-2">
       <% if logged_in? %>
-      <%= link_to "My Profile", user_path(current_user.id) %>
-      <br><br>
-    <%= link_to "Create a Project", new_project_path %>
-  <% end %>
+        <span><%= link_to "See my Profile", user_path(current_user.id) %></span>
+        <br>
+        <span><%= link_to "Start a Project", new_project_path %></span>
+      <% end %>
+    </div>
+  </div>
+
 </div>

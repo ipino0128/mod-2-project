@@ -21,13 +21,13 @@
       <%= f.label :description %>
       <%= f.text_area :description %> <br>
 
-      <%= f.label :funds_needed %>
-      <%= f.number_field :funds_needed %> <br>
+      <%= f.label :funds_needed, "Funds needed: $" %>
+      <%= f.number_field :funds_needed%> <br>
 
-      <%= f.label :project_photo%>
+      <%= f.label :project_photo, "Add an image of your project:"%>
       <%= f.file_field :project_photo %> <br>
 
       <%= f.submit %>
     <% end %>
-    
+
 </div>

@@ -7,8 +7,8 @@ class Project < ApplicationRecord
 
   ###validations
   validates :title, presence: true
-  validates :description, presence: true
-  validates :funds_needed, presence: true 
+  validates :description, presence: true, length: {minimum: 30}
+  validates :funds_needed, presence: true
 
   def number_of_supporters
     self.backers.uniq.count
