@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :gender
       t.string :country
       t.string :occupation
+      t.text :note_content
 
       t.timestamps
     end

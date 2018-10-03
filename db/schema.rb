@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_172224) do
     t.string "gender"
     t.string "country"
     t.string "occupation"
+    t.text "note_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

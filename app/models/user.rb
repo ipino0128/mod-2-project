@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   ###validations
   validates :username, uniqueness: true, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, :on => :create
+  validates :password_confirmation, presence: true, :on => :create
 
 
   has_secure_password

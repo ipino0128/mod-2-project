@@ -26,14 +26,18 @@
         <span><%= link_to "See my Profile", user_path(current_user.id) %></span>
         <br>
         <span><%= link_to "Start a Project", new_project_path %></span>
+        <br>
+        <span><%= link_to "My Notes", note_path(current_user.id)%> </span>
       <% end %>
       <br><br>
       <%= form_tag("/search", method: :get) do %>
-
         <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
         <%= submit_tag("Search") %>
       <% end %>
+      <br>
+      <br>
+      <br>
+      
     </div>
   </div>
-
 </div>

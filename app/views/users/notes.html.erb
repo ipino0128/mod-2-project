@@ -1,0 +1,15 @@
+<div class="container">
+  <img src="https://articulate-heroes.s3.amazonaws.com/uploads/rte/rydofbpq_SpiralNotebook_FirstPage.png" alt="Snow" style="width:100%;">
+  <div class="top-left">
+    <%= form_for @user, url: "/notes/#{@user.id}", method: "patch" do |f| %>
+      <%= f.text_area :note_content, :cols => "75", :rows => "18" %>
+      <br>
+      <div class="note-button">
+        <%= f.submit "Save Notes"%>
+            <%end%>
+      </div>
+      <div class="menu-button">
+        <%= link_to "Main Menu", "/" %>
+      </div>
+  </div>
+</div>
