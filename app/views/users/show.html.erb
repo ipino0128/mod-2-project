@@ -14,7 +14,7 @@
     <% end %>
       <ul><% @user.created_projects.each do |created_project| %>
       <p><%= link_to created_project.title, project_path(created_project.id) %><br>
-          <%= created_project.description %></p>
+          <%= created_project.description[0..100] + "..." %></p>
         <% end %>
       </ul>
 
@@ -24,7 +24,7 @@
       <% else %>
         Projects this user has backed:
       <% end %>
-        <ul><% @user.backed_projects.each do |backed_project| %>
+        <ul><% @user.backed_projects.uniq.each do |backed_project| %>
           <p><%= link_to backed_project.title, project_path(backed_project.id) %></p>
         <% end %>
         </ul>

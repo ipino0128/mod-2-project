@@ -6,10 +6,12 @@
         Category: <%= @project.category.name %>  <br>
         Description: <%= @project.description %> <br><br>
         <% if @project.funds_acquired >= @project.funds_needed %>
-          <div class="goal-reached"><%= "GOAL REACHED!!!" %></div>
+          <div class="goal-reached">GOAL REACHED!!! </div>
+          <img src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/uh59Wh0/money-bag-usd-sketch-illustration-hand-drawn-animation-transparent_h3kdngey__F0014.png", width= "150", height= "100">
         <% end %>
-        Funds needed: $<%= @project.funds_needed %> <br>
-        Funds acquired: $<%= @project.funds_acquired %> <br>
+          <div class="funds">
+            $<%= @project.funds_acquired %> pledged of $<%= @project.funds_needed %> goal <br>
+          </div>
         Number of backers: <%= @project.number_of_supporters %>
     </div>
     <div class="project-picture col-sm-4">
@@ -25,6 +27,14 @@
       Enter how much you'd like to support: $<%= f.number_field :funds_acquired %>
       <%= f.submit "Back this project" %>
     <% end %>
+  <%else %>
+  <br>
+  <br>
+      Want to support this project?
+    <%= link_to "Log in", "/login"%> or
+    <%= link_to "Create an account", "/users/new" %>
+
+
   <% end %>
   <br><br>
 
