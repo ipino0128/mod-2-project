@@ -9,7 +9,7 @@
               <img class="card-img-top" src="<%=project.project_photo%>">
               <div class="card-body">
                 <h5 class="card-title"><%=project.title%></h5>
-                <p class="card-text"><%=project.description unless !project.description %></p>
+                <p class="card-text"><%=project.description[0..100] + "..." unless !project.description %></p>
                 <a href="/projects/<%=project.id%>" class="btn btn-primary">See Project</a>
               </div>
             </div>
