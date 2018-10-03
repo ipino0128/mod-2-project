@@ -1,47 +1,44 @@
-<div class="form">
-
-  <div class="error">
-  <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
-    <% end %>
-  <% end %>
+<div class="hero-image">
+  <div class ="hero-text">
+      <div class="form">
+        <br><br> <br>
+        <h1>Create an account:</h1> <br>
+        <div class="error">
+        <% if @user.errors.any? %>
+          <% @user.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+          <% end %>
+        <% end %>
+        </div>
+      <div class="container">
+            <%= form_for @user do |f| %>
+            <div class="form-group">
+              <%= f.label :username %>
+              <%= f.text_field :username %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation %>
+            </div>
+            <div class="form-group">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name %>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+            </div>
+              <%= f.submit %>
+            <%end%>
+          </div>
+      </div>
+    </div>
   </div>
-
-  <h1>Create a profile:</h1>
-      <%= form_for @user do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username %> <br>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %> <br>
-
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %> <br>
-
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %> <br>
-
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %> <br>
-
-        <%= f.label :email %>
-        <%= f.text_field :email %> <br>
-
-        <%= f.label :age %>
-        <%= f.text_field :age %> <br>
-
-        <%= f.label :gender %>
-        <%= f.text_field :gender %> <br>
-
-        <%=f.label :country %>
-        <%= f.text_field :country %> <br>
-
-        <%= f.label :occupation %>
-        <%= f.text_field :occupation %> <br>
-
-        <%= f.submit %>
-      <%end%>
-
-    
-</div>

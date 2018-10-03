@@ -22,11 +22,12 @@
     </div>
     <div class="right-column col-sm-2">
       <% if logged_in? %>
-        <span><%= link_to "See my Profile", user_path(current_user.id) %></span>
+        <span><%= link_to "My Profile", user_path(current_user.id) %></span>
+        <br>
+        <span><%= link_to "My Notes", note_path(current_user.id)%> </span>
         <br>
         <span><%= link_to "Start a Project", new_project_path %></span>
         <br>
-        <span><%= link_to "My Notes", note_path(current_user.id)%> </span>
       <% end %>
       <br><br>
       <%= form_tag("/search", method: :get) do %>
