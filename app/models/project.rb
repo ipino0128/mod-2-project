@@ -13,4 +13,17 @@ class Project < ApplicationRecord
   def number_of_supporters
     self.backers.uniq.count
   end
+
+  def lowercase_title
+    self.title.downcase
+  end
+
+  def self.search(q)
+    if q
+      where('title LIKE ?', "%#{q}%")
+    else
+      all
+    end
+  end
+
 end
