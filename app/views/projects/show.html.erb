@@ -2,7 +2,7 @@
   <div class="row">
     <div class="project-info col-sm-8">
     <h1><%= @project.title %></h1>
-    <h5>By: <%= @project.creator.full_name%></h5><br>
+    <h5>By: <%= link_to @project.creator.full_name, user_path(@project.creator)%></h5><br>
         Category: <%= @project.category.name %>  <br>
         Description: <%= @project.description %> <br><br>
         Funds needed: $<%= @project.funds_needed %> <br>
@@ -31,5 +31,7 @@
          <%= f.submit "Delete Project" %>
     <%end%>
   <% end %>
+
+<%= link_to "Main Menu", "/" %>
 
 </div>

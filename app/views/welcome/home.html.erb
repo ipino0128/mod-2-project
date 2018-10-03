@@ -1,5 +1,9 @@
 <div class = "welcome" >
 
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+
   <div class="row">
     <div class="left-column col-sm-10">
       <div class="card-deck">
@@ -22,6 +26,12 @@
         <span><%= link_to "See my Profile", user_path(current_user.id) %></span>
         <br>
         <span><%= link_to "Start a Project", new_project_path %></span>
+      <% end %>
+      <br><br>
+      <%= form_tag("/search", method: :get) do %>
+
+        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
+        <%= submit_tag("Search") %>
       <% end %>
     </div>
   </div>

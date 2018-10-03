@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
   patch '/projects/:id/support', to: "projects#support"
+  get '/search', to: "welcome#home"
 end

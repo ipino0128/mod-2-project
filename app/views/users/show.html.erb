@@ -7,17 +7,28 @@
     Country: <%= @user.country %> <br>
     Occupation: <%= @user.occupation %> <br>
     <br>
-    See my projects:
-    <ul><% @user.created_projects.each do |created_project| %>
-    <p><%= link_to created_project.title, project_path(created_project.id) %><br>
-        <%= created_project.description %></p>
-      <% end %>
-    </ul>
-    <br>
-    Projects I've backed:
-    <ul><% @user.backed_projects.each do |backed_project| %>
-      <p><%= link_to backed_project.title, project_path(backed_project.id) %></p>
+    <% if current_user.id == @user.id %>
+      My projects:
+    <% else %>
+      User's projects:
     <% end %>
-    </ul>
+      <ul><% @user.created_projects.each do |created_project| %>
+      <p><%= link_to created_project.title, project_path(created_project.id) %><br>
+          <%= created_project.description %></p>
+        <% end %>
+      </ul>
+      <br>
+      <% if current_user.id == @user.id %>
+        Backed projects:
+      <% else %>
+        Projects this user has backed:
+      <% end %>
+        <ul><% @user.backed_projects.each do |backed_project| %>
+          <p><%= link_to backed_project.title, project_path(backed_project.id) %></p>
+        <% end %>
+        </ul>
+
+<br>
+<%= link_to "Main Menu", '/' %>
 
 </div>
