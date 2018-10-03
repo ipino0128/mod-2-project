@@ -17,6 +17,7 @@
           <%= created_project.description %></p>
         <% end %>
       </ul>
+
       <br>
       <% if current_user.id == @user.id %>
         Backed projects:
@@ -28,7 +29,12 @@
         <% end %>
         </ul>
 
-<br>
-<%= link_to "Main Menu", '/' %>
+        <br>
+        <% if current_user.id == @user.id %>
+          <%= link_to "Edit my profile", edit_user_path(@user) %>
+         <% end %>
+        <br>
+        <%= link_to "Main Menu", '/' %>
+
 
 </div>

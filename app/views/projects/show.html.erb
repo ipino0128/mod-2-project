@@ -5,6 +5,9 @@
     <h5>By: <%= link_to @project.creator.full_name, user_path(@project.creator)%></h5><br>
         Category: <%= @project.category.name %>  <br>
         Description: <%= @project.description %> <br><br>
+        <% if @project.funds_acquired >= @project.funds_needed %>
+          <div class="goal-reached"><%= "GOAL REACHED!!!" %></div>
+        <% end %>
         Funds needed: $<%= @project.funds_needed %> <br>
         Funds acquired: $<%= @project.funds_acquired %> <br>
         Number of backers: <%= @project.number_of_supporters %>

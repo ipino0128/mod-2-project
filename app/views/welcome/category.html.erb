@@ -1,12 +1,9 @@
-<div class = "welcome" >
+<div class = "welcome">
 
   <div class="row">
     <div class="left-column col-sm-10">
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
       <div class="card-deck">
-        <% @projects.each do |project| %>
+        <% @category.projects.each do |project| %>
           <div class="index-info-box col-sm-4">
             <div class="card">
               <img class="card-img-top" src="<%=project.project_photo%>">
@@ -22,6 +19,7 @@
     </div>
     <div class="right-column col-sm-2">
       <% if logged_in? %>
+        <p></p>
         <span><%= link_to "See my Profile", user_path(current_user.id) %></span>
         <br>
         <span><%= link_to "Start a Project", new_project_path %></span>
@@ -35,9 +33,10 @@
       <% end %>
       <br><br><br>
     <div class="underline_category">List of categories:</div>
-      <% @categories.each do |category| %>
-        <span><%= link_to category.name, category_path(category.id) %></span><br>
+      <% Category.all.each do |category| %>
+      <span><%= link_to category.name, category_path(category.id) %></span><br>
       <% end %>
     </div>
   </div>
+
 </div>
