@@ -26,19 +26,25 @@
   </head>
 
   <body>
-        <div class="header" id="myHeader">
+        <div class="header sticky-top" id="myHeader">
           <span> <a href="/">BRIGHT<img src='https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4M04x-Kueijnfl2yb/shining-light-bulb-with-human-brain-big-idea-innovation-concept-hd-graphic-animation_r4g_iae8x_thumbnail-full12.png' width='120' height='80'>IDEAS </a></span>
         <div class="login_logout">
               <% if logged_in? %>
                 Welcome, <%= current_user.first_name %><br>
                 <%= form_tag '/logout', method: "post" do %>
-                  <input type=submit value="logout"><br>
+                <input type=submit value="logout"><br>
                   <%end%>
               <% else %>
               <%= link_to "Click to log-in", login_path %>
               <% end %>
         </div>
+        <div class="mini-header">
+          <% if logged_in? %>
+          <%= link_to "My Profile", user_path(current_user.id) %>&nbsp | &nbsp<%= link_to "Start a Project", new_project_path %>&nbsp | &nbsp<%= link_to "My Notes", note_path(current_user.id)%>
+          <% end %>
+        </div>
       </div>
+
     <%= yield %>
   </body>
 </html>
