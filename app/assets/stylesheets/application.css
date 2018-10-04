@@ -161,6 +161,7 @@ div .card {
 }
 
 .card-header {
+  color: rgb(0,87,139);
   font-weight: bold;
 }
 
