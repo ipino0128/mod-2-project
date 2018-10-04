@@ -143,7 +143,7 @@ body, html {
 
 div .card {
   border-color: rgb(0,87,139);
-  border-width: 2px;
+  border-width: 1px;
 }
 
 .goal-reached {
