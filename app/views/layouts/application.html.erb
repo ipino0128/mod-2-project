@@ -40,7 +40,7 @@
         </div>
         <div class="mini-header">
           <% if logged_in? %>
-          <%= link_to "My Profile", user_path(current_user.id) %>&nbsp | &nbsp<%= link_to "Start a Project", new_project_path %>&nbsp | &nbsp<%= link_to "My Notes", note_path(current_user.id)%>
+          <%= link_to "My Profile", user_path(current_user.id) %>&nbsp | &nbsp<%= link_to "Start a Project", new_project_path %>&nbsp | &nbsp<%= link_to "My Notes", note_path(current_user.id)%>&nbsp | &nbsp<%= link_to "My Stats", stat_path(current_user.id) %>
           <% end %>
         </div>
       </div>

@@ -182,11 +182,38 @@ div .card {
   padding-left: 150px;
 }
 
-.search-by-category, .search-by-category span a {
+.search-by-category, .search-by-category span a, .stats a{
   color: rgb(0,87,139);
 }
 
 footer {
   font-size: 16px;
   color: gray;
+}
+
+.stats{
+  margin-left: 20px;
+  margin-top: 16px;
+}
+
+.stats li{
+  margin-left: 30px;
+}
+
+input[type="submit"] {
+  background-color: white;
+  border: 1px solid rgb(0,87,139);
+  color: rgb(0,87,139);
+  border-radius: 12px;
+}
+
+
+input[type="submit"]:hover {
+  background-color: rgb(0,87,139);
+  color: white;
+  border-radius: 12px;
+}
+
+.search-field input[type="textarea"]{
+  border: 1px solid rgb(0,87,139);
 }

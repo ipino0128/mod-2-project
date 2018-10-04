@@ -1,6 +1,20 @@
 <div class = "welcome">
 
   <div class="row">
+    <div class="search-header col-lg-12">
+      <div class="search-by-category">
+        <br>Search by category:
+        <% @categories.each do |category| %>
+          <span><%= link_to category.name, category_path(category.id) %> | </span>
+        <% end %>
+      </div>
+      <br>
+      <%= form_tag("/search", method: :get) do %>
+        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
+        <%= submit_tag("Search") %>
+      <% end %>
+      <br>
+    </div>
     <div class="left-column col-sm-10">
       <div class="card-deck">
         <% @category.projects.each do |project| %>
@@ -20,26 +34,4 @@
         <% end %>
       </div>
     </div>
-    <div class="right-column col-sm-2">
-      <% if logged_in? %>
-        <p></p>
-        <span><%= link_to "See my Profile", user_path(current_user.id) %></span>
-        <br>
-        <span><%= link_to "Start a Project", new_project_path %></span>
-        <br>
-        <span><%= link_to "My Notes", note_path(current_user.id)%> </span>
-      <% end %>
-      <br><br>
-      <%= form_tag("/search", method: :get) do %>
-        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
-        <%= submit_tag("Search") %>
-      <% end %>
-      <br><br><br>
-    <div class="underline_category">List of categories:</div>
-      <% Category.all.each do |category| %>
-      <span><%= link_to category.name, category_path(category.id) %></span><br>
-      <% end %>
-    </div>
-  </div>
-
 </div>

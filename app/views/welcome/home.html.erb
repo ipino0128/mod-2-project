@@ -16,9 +16,11 @@
       <br>
     </div>
     <div class="left-column col-lg-10">
+      <div class="flash">
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
+      </div>
       <div class="card-deck">
         <% @projects.each do |project| %>
           <div class="index-info-box col-sm-4">
