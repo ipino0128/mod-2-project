@@ -1,3 +1,13 @@
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
 /* Style the header */
 .header {
   padding: 10px 16px;
@@ -97,11 +107,6 @@ body, html {
   height: 250px;
 }
 
-.right-column.col-sm-2 {
-  text-align: center;
-  padding-top: 20px;
-}
-
 .project-picture.col-sm-4 img {
   object-fit: cover;
 }
@@ -144,6 +149,7 @@ body, html {
 div .card {
   border-color: rgb(0,87,139);
   border-width: 1px;
+  border-radius: 12px;
 }
 
 .goal-reached {
@@ -174,16 +180,16 @@ div .card {
   color: rgb(0,87,139)
 }
 
-.row {
-  text-align: center;
-}
 
 .card-deck {
-  padding-left: 150px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 30px;
 }
 
-.search-by-category, .search-by-category span a, .stats a{
+.search-by-category, .search-by-category span a, .stats a, .search-by-project{
   color: rgb(0,87,139);
+  text-align: center;
 }
 
 footer {
@@ -216,4 +222,33 @@ input[type="submit"]:hover {
 
 .search-field input[type="textarea"]{
   border: 1px solid rgb(0,87,139);
+}
+
+
+.delete-project-button input[type="submit"]{
+  color: maroon;
+  border: 1px solid maroon;
+  border-radius: 12px;
+}
+
+.delete-project-button input[type="submit"]:hover{
+background-color: maroon;
+color: white;
+border-radius: 12px;
+}
+
+.app-footer {
+  background-color: rgb(0,87,139);
+  color: white;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.footer-careers, .footer-support, .footer-about{
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.footer-careers-list, .footer-support-list, .footer-about-list {
+  font-size: 11px;
 }

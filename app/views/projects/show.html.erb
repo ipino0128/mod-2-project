@@ -20,7 +20,7 @@
   </div>
 
 
-
+  <div class="back-this-project">
   <% if logged_in? %>
     <%= form_for @project, url: "/projects/#{@project.id}/support", method: :patch do |f| %>
 
@@ -28,23 +28,20 @@
       <%= f.submit "Back this project" %>
     <% end %>
   <%else %>
-  <br>
-  <br>
-      Want to support this project?
+  <br><br>
+  <div class="support-this-project?">
+    Want to support this project?
     <%= link_to "Log in", "/login"%> or
     <%= link_to "Create an account", "/users/new" %>
-
-
-  <% end %>
-  <br><br>
-
+    <% end %>
   <% if @project.creator_id == current_user.id %>
-    <%= link_to "Edit Project", edit_project_path %>
     <%= form_for @project, url: "/projects/#{@project.id}", method: :delete do |f| %>
-         <%= f.submit "Delete Project" %>
-    <%end%>
+       <div class="delete-project-button"><%= f.submit "Delete Project" %></div>
+    <%end%><br><br>
+    <%= link_to "Edit Project", edit_project_path %>
   <% end %>
-
-<%= link_to "Main Menu", "/" %>
-
+  <br>
+  <%= link_to "Main Menu", "/" %>
+  </div>
+  </div>
 </div>

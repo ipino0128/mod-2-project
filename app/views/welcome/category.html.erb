@@ -1,6 +1,4 @@
-<div class = "welcome">
-
-  <div class="row">
+<div class="row">
     <div class="search-header col-lg-12">
       <div class="search-by-category">
         <br>Search by category:
@@ -9,12 +7,6 @@
         <% end %>
       </div>
       <br>
-      <%= form_tag("/search", method: :get) do %>
-        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
-        <%= submit_tag("Search") %>
-      <% end %>
-      <br>
-    </div>
     <div class="left-column col-sm-10">
       <div class="card-deck">
         <% @category.projects.each do |project| %>

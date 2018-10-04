@@ -1,6 +1,4 @@
-<div class = "welcome" >
-
-  <div class="row">
+<div class="row">
     <div class="search-header col-lg-12">
       <div class="search-by-category">
         <br>Search by category:
@@ -9,13 +7,14 @@
         <% end %>
       </div>
       <br>
+      <div class="search-by-project">
       <%= form_tag("/search", method: :get) do %>
         <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
         <%= submit_tag("Search") %>
       <% end %>
       <br>
     </div>
-    <div class="left-column col-lg-10">
+    <div class="left-column col-lg-12">
       <div class="flash">
       <% if flash[:notice] %>
         <%= flash[:notice] %>
@@ -41,3 +40,34 @@
     </div>
   </div>
 </div>
+
+<% if !flash[:notice] %>
+  <footer class="app-footer">
+    <div class="row col-lg-12">
+      <div class="col-sm-4">
+        <div class="footer-about">ABOUT</div>
+        <div class="footer-about-list">
+          <div>Who are we</div>
+          <div>Where are we</div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="footer-support">SUPPORT</div>
+        <div class="footer-support-list">
+          <div>Give us money</div>
+          <div>Please</div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="footer-careers">CAREERS</div>
+        <div class="footer-careers-list">
+          <div>Do we look like we have money to hire people?</div>
+          <div>Give us money</div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+<% end %>

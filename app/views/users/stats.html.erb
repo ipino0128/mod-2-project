@@ -9,8 +9,13 @@
     <li> <%= link_to project.title, project_path(project) %></li>
   <%end%>
 
-  Total funds acquired: $<%= @user.total_funds_acquired %> <br>
-  Additional funds needed: $<%= @user.total_funds_needed - @user.total_funds_acquired %> <br>
+  Total funds acquired: $ <%= @user.total_funds_acquired %> <br>
+  Additional funds needed: $
+  <%if @user.total_funds_needed - @user.total_funds_acquired < 0 %>
+    <%= 0 %>
+  <% else %>
+   <%= @user.total_funds_needed - @user.total_funds_acquired %>
+  <% end %><br>
 
   Most popular project: <%= link_to @user.most_popular_project.title, project_path(@user.most_popular_project) %> <br>
 </div>
