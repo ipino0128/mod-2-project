@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get '/notes/:id', to: "users#notes", as: "note"
   patch '/notes/:id', to: "users#notes_save"
   get '/category/:id', to: "welcome#category", as: "category"
+  get '/stats/:id', to: "users#stats", as: "stat"
 
 end

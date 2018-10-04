@@ -41,6 +41,9 @@ class UsersController < ApplicationController
     redirect_to note_path(@user)
   end
 
+  def stats
+    @user = User.find(params[:id])
+  end
 
 
   private

@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
   end
 
   def category
+    @categories = Category.all
     @category = Category.find(params[:id])
   end
 

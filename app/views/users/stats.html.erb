@@ -1,0 +1,16 @@
+<div class="stats">
+<h1><%=@user.first_name%>'s Statistics</h1>
+
+  Total number of projects: <%=@user.total_projects%> <br>
+
+  Number of projects to reach goal: <%= @user.goal_reached_projects.count%> <br>
+
+  <% @user.goal_reached_projects.each do |project| %>
+    <li> <%= link_to project.title, project_path(project) %></li>
+  <%end%>
+
+  Total funds acquired: $<%= @user.total_funds_acquired %> <br>
+  Additional funds needed: $<%= @user.total_funds_needed - @user.total_funds_acquired %> <br>
+
+  Most popular project: <%= link_to @user.most_popular_project.title, project_path(@user.most_popular_project) %> <br>
+</div>
