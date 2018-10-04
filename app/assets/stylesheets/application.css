@@ -107,11 +107,6 @@ body, html {
   height: 250px;
 }
 
-.right-column.col-sm-2 {
-  text-align: center;
-  padding-top: 20px;
-}
-
 .project-picture.col-sm-4 img {
   object-fit: cover;
 }
@@ -185,9 +180,6 @@ div .card {
   color: rgb(0,87,139)
 }
 
-.row {
-  text-align: center;
-}
 
 .card-deck {
   padding-left: 80px;
@@ -195,8 +187,9 @@ div .card {
   padding-bottom: 30px;
 }
 
-.search-by-category, .search-by-category span a, .stats a{
+.search-by-category, .search-by-category span a, .stats a, .search-by-project{
   color: rgb(0,87,139);
+  text-align: center;
 }
 
 footer {
@@ -231,9 +224,6 @@ input[type="submit"]:hover {
   border: 1px solid rgb(0,87,139);
 }
 
-.back-this-project {
-  margin-left: 15px;
-}
 
 .delete-project-button input[type="submit"]{
   color: maroon;
@@ -251,6 +241,7 @@ border-radius: 12px;
   background-color: rgb(0,87,139);
   color: white;
   padding-top: 10px;
+  text-align: center;
 }
 
 .footer-careers, .footer-support, .footer-about{

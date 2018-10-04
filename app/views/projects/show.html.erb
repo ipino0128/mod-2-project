@@ -28,13 +28,12 @@
       <%= f.submit "Back this project" %>
     <% end %>
   <%else %>
-  <br>
-  <br>
-      Want to support this project?
+  <br><br>
+  <div class="support-this-project?">
+    Want to support this project?
     <%= link_to "Log in", "/login"%> or
     <%= link_to "Create an account", "/users/new" %>
-  <% end %>
-
+    <% end %>
   <% if @project.creator_id == current_user.id %>
     <%= form_for @project, url: "/projects/#{@project.id}", method: :delete do |f| %>
        <div class="delete-project-button"><%= f.submit "Delete Project" %></div>
@@ -43,5 +42,6 @@
   <% end %>
   <br>
   <%= link_to "Main Menu", "/" %>
+  </div>
   </div>
 </div>
