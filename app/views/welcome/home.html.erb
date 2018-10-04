@@ -1,7 +1,21 @@
 <div class = "welcome" >
 
   <div class="row">
-    <div class="left-column col-sm-10">
+    <div class="search-header col-lg-12">
+      <div class="search-by-category">
+        <br>Search by category:
+        <% @categories.each do |category| %>
+          <span><%= link_to category.name, category_path(category.id) %> | </span>
+        <% end %>
+      </div>
+      <br>
+      <%= form_tag("/search", method: :get) do %>
+        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
+        <%= submit_tag("Search") %>
+      <% end %>
+      <br>
+    </div>
+    <div class="left-column col-lg-10">
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
@@ -9,36 +23,19 @@
         <% @projects.each do |project| %>
           <div class="index-info-box col-sm-4">
             <div class="card">
-              <img class="card-img-top" src="<%=project.project_photo%>">
-              <div class="card-body">
-                <h5 class="card-title"><%=project.title%></h5>
-                <p class="card-text"><%=project.description[0..100] + "..." unless !project.description %></p>
-                <a href="/projects/<%=project.id%>" class="btn btn-primary">See Project</a>
+              <div class="card-header">
+                <%= project.title %>
               </div>
+                <img class="card-img-top" src="<%=project.project_photo%>">
+                <div class="card-body">
+                  <p class="card-text"><%=project.description[0..100] + "..." unless !project.description %></p>
+                  <a href="/projects/<%=project.id%>" class="btn btn-primary">See Project</a>
+                </div>
+                <footer>$<%= project.funds_acquired %> pledged of $<%= project.funds_needed %> goal</footer>
             </div>
           </div>
         <% end %>
       </div>
-    </div>
-    <div class="right-column col-sm-2">
-      <% if logged_in? %>
-        <span><%= link_to "My Profile", user_path(current_user.id) %></span>
-        <br>
-        <span><%= link_to "My Notes", note_path(current_user.id)%> </span>
-        <br>
-        <span><%= link_to "Start a Project", new_project_path %></span>
-        <br>
-      <% end %>
-      <br><br>
-      <%= form_tag("/search", method: :get) do %>
-        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
-        <%= submit_tag("Search") %>
-      <% end %>
-      <br><br><br>
-    <div class="underline_category">List of categories:</div>
-      <% @categories.each do |category| %>
-        <span><%= link_to category.name, category_path(category.id) %></span><br>
-      <% end %>
     </div>
   </div>
 </div>
